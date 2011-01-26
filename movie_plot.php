@@ -55,9 +55,12 @@ class MoviePlotGenerator {
 	 * @param array $arr
 	 * @return mixed
 	 */	
-	protected function getRandom($arr)
+	protected function getRandom(&$arr)
 	{
-		return $arr[rand(0, count($arr) - 1)];
+		$random = rand(0, count($arr) - 1);
+		$random_val = $arr[$random];
+		unset($arr[$random]);
+                return $random_val;
 	}
 		
 }
